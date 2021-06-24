@@ -13,7 +13,10 @@ namespace GerenciamentoDeClientes.Infra.Mapping
         {
             builder.ToTable("Cliente");
 
-            builder.HasKey(prop => prop.Id);
+            builder.HasKey(prop => prop.Id)
+                   .HasName("idCliente")
+                
+                ;
 
             builder.Property(prop => prop.nome)
                 .HasConversion(prop => prop.ToString(), prop => prop)
@@ -36,13 +39,19 @@ namespace GerenciamentoDeClientes.Infra.Mapping
             builder.Property(prop => prop.dNascimento)
                 .IsRequired()
                 .HasColumnName("dNascimento")
-                .HasColumnType("datetime2")
-                .HasPrecision(0);
+                .HasColumnType("date");
+
+            builder.Property(prop => prop.dDataCadastro)
+               .IsRequired()
+               .HasColumnName("dDataCadastro")
+               .HasColumnType("datetime2")
+               .HasPrecision(0);
+
 
             builder.Property(prop => prop.sexo)
                 .HasConversion(prop => prop.ToString(), prop => prop)
                 .IsRequired()
-                .HasColumnName("dNascimento")
+                .HasColumnName("Sexo")
                 .HasColumnType("nvarchar(2)");
             
             builder.Property(prop => prop.bairro)

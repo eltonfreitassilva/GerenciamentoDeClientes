@@ -27,7 +27,7 @@ namespace GerenciamentoDeclientes.App
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<Contexto>(opt => opt.UseSqlServer("data source=DESKTOP-4HU40M6\\SQLEXPRESS;initial catalog=Agendamento;Integrated Security=true;MultipleActiveResultSets=True"));
+            services.AddDbContext<Contexto>(opt => opt.UseSqlServer("data source=DESKTOP-4HU40M6\\SQLEXPRESS;initial catalog=Agendamento;Integrated Security=true"));
             services.AddControllers();
         }
 
